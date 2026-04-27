@@ -1,10 +1,8 @@
-// nexto-stripe.js — Frontend Stripe Checkout
-// Substitua pk_test_... pela sua chave PÚBLICA do Stripe (Developers > API Keys)
+// nexto-stripe.js — Frontend Stripe Checkout — LIVE MODE
 (function () {
   // ─── CONFIGURAÇÃO ──────────────────────────────────────────────
-  // Esta chave pública é segura para ficar no frontend
-  // Troque por pk_live_... quando for para produção
-  const STRIPE_PK = 'pk_test_SUBSTITUA_PELA_SUA_CHAVE_PUBLICA';
+  // Chave pública LIVE — segura para ficar no frontend
+  const STRIPE_PK = 'pk_live_51QMZNoDGidYUEaasOMRGZZIM9CQCXI4MJjWF584c9SWm3GSxI8tI1r5pBlUQhTSFwhqujBBjoNT4rXUP16Df8UWr00Y1RIyQ65';
 
   // Endpoint da API no Vercel (serverless function)
   const API_URL = '/api/create-checkout-session';
