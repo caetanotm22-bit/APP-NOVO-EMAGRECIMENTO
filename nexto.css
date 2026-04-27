@@ -1057,9 +1057,13 @@ section{padding:var(--section-py) 0;position:relative}
   .lg-item--tall img { min-height: 220px; }
 
   /* Pricing single */
-  .pricing-single { grid-template-columns: 1fr; }
+  .pricing-single { grid-template-columns: 1fr; max-width: 100%; }
   .pc-features-grid { grid-template-columns: 1fr; }
   .pricing-side { display: none; }
+  .pricing-card--solo { max-width: 100%; width: 100%; box-sizing: border-box; }
+  .pc-price { justify-content: center; }
+  .pc-badge { display: block; text-align: center; }
+  .pricing-card--featured { padding: 24px 20px; }
 }
 
 @media (max-width: 480px) {
@@ -1069,4 +1073,19 @@ section{padding:var(--section-py) 0;position:relative}
 
   /* Section CTAs */
   .section-cta .btn { width: 100%; justify-content: center; }
+
+  /* Pricing card full-width on small screens */
+  .pricing { padding-left: 0; padding-right: 0; }
+  .pricing .container { padding-left: 16px; padding-right: 16px; }
+  .pricing-single { margin: 0 auto 32px; width: 100%; }
+  .pricing-card--solo {
+    width: 100%;
+    max-width: 100%;
+    padding: 24px 16px;
+    box-sizing: border-box;
+  }
+  .pc-features-grid { grid-template-columns: 1fr; gap: 0; }
+  .pc-features li { font-size: .82rem; }
+  .pc-val { font-size: 2.6rem; }
+  .pricing-single > .pricing-card--solo { margin: 0 auto; }
 }
