@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bem-vindo ao Nexto! ✅</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #070B14;
+      --surface: #0E1420;
+      --border: rgba(255,255,255,0.08);
+      --purple: #A25CFF;
+      --green: #26E38A;
+      --text: #F0F4FF;
+      --muted: #7A8AA0;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      max-width: 520px;
+      width: 100%;
+      padding: 48px 40px;
+      text-align: center;
+    }
+
+    .icon {
+      font-size: 64px;
+      margin-bottom: 24px;
+      display: block;
+    }
+
+    h1 {
+      font-size: 2rem;
+      font-weight: 800;
+      margin-bottom: 12px;
+      background: linear-gradient(135deg, var(--purple), var(--green));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .subtitle {
+      color: var(--muted);
+      font-size: 1.05rem;
+      line-height: 1.6;
+      margin-bottom: 32px;
+    }
+
+    .highlight {
+      color: var(--green);
+      font-weight: 700;
+      -webkit-text-fill-color: var(--green);
+    }
+
+    .steps {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px;
+      text-align: left;
+      margin-bottom: 32px;
+    }
+
+    .steps h3 {
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--purple);
+      margin-bottom: 16px;
+    }
+
+    .step-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .step-item:last-child { margin-bottom: 0; }
+
+    .step-num {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--purple), #6B8CFF);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .step-text {
+      font-size: 0.9rem;
+      color: var(--text);
+      line-height: 1.5;
+      padding-top: 4px;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--purple), #6B8CFF);
+      color: #fff;
+      font-family: inherit;
+      font-size: 1rem;
+      font-weight: 700;
+      padding: 16px 32px;
+      border-radius: 12px;
+      text-decoration: none;
+      width: 100%;
+      margin-bottom: 12px;
+      transition: opacity 0.2s;
+    }
+
+    .btn-primary:hover { opacity: 0.9; }
+
+    .btn-ghost {
+      display: inline-block;
+      color: var(--muted);
+      font-family: inherit;
+      font-size: 0.9rem;
+      font-weight: 500;
+      text-decoration: none;
+      padding: 8px;
+      transition: color 0.2s;
+    }
+
+    .btn-ghost:hover { color: var(--text); }
+
+    .trial-badge {
+      display: inline-block;
+      background: rgba(38,227,138,0.1);
+      border: 1px solid rgba(38,227,138,0.3);
+      color: var(--green);
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 6px 16px;
+      border-radius: 99px;
+      margin-bottom: 24px;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <span class="icon">🎉</span>
+    <div class="trial-badge">✅ Trial de 14 dias ativado!</div>
+    <h1>Bem-vindo ao Nexto!</h1>
+    <p class="subtitle">
+      Sua equipe de saúde completa está pronta.<br />
+      <span class="highlight">14 dias grátis</span> — depois apenas A$29/mês.
+    </p>
+
+    <div class="steps">
+      <h3>Próximos passos</h3>
+      <div class="step-item">
+        <div class="step-num">1</div>
+        <div class="step-text">Verifique seu e-mail — enviamos as instruções de acesso</div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">2</div>
+        <div class="step-text">Baixe o app Nexto na App Store ou Google Play</div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">3</div>
+        <div class="step-text">Complete seu perfil em 2 minutos e sua equipe já começa a trabalhar para você</div>
+      </div>
+    </div>
+
+    <a href="#" class="btn-primary">📱 Baixar o app agora</a>
+    <a href="/" class="btn-ghost">← Voltar para o início</a>
+  </div>
+</body>
+</html>

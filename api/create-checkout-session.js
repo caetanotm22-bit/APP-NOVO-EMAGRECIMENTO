@@ -1,0 +1,46 @@
+// api/create-checkout-session.js
+// Vercel Serverless Function — cria sessão de checkout Stripe
+const Stripe = require('stripe');
+
+module.exports = async (req, res) => {
+  // Libera CORS para o frontend chamar esta API
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+
+  if (req.method === 'OPTIONS') return res.status(200).end();
+  if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
+
+  try {
+    const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
+
+    const session = await stripe.checkout.sessions.create({
+      mode: 'subscription',
+      payment_method_types: ['card'],
+      line_items: [
+        {
+          price: process.env.STRIPE_PRICE_ID, // price_xxxx — cadastrado no Vercel env vars
+          quantity: 1,
+        },
+      ],
+      subscription_data: {
+        trial_period_days: 14, // 14 dias grátis
+      },
+      allow_promotion_codes: true, // aceita cupons de desconto
+      billing_address_collection: 'auto',
+      success_url: `${process.env.NEXT_PUBLIC_URL}/sucesso.html?session_id={CHECKOUT_SESSION_ID}`,
+      cancel_url: `${process.env.NEXT_PUBLIC_URL}/#precos`,
+      locale: 'pt-BR',
+      custom_text: {
+        submit: {
+          message: '14 dias grátis — cancele quando quiser, sem multa.',
+        },
+      },
+    });
+
+    return res.status(200).json({ sessionId: session.id });
+  } catch (err) {
+    console.error('Stripe error:', err.message);
+    return res.status(500).json({ error: err.message });
+  }
+};
