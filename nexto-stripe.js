@@ -1,60 +1,44 @@
-// nexto-stripe.js — Frontend Stripe Checkout — LIVE MODE
+// nexto-stripe.js — Stripe Checkout LIVE
 (function () {
-  // ─── CONFIGURAÇÃO ──────────────────────────────────────────────
-  // Chave pública LIVE — segura para ficar no frontend
-  const STRIPE_PK = 'pk_live_51QMZNoDGidYUEaasOMRGZZIM9CQCXI4MJjWF584c9SWm3GSxI8tI1r5pBlUQhTSFwhqujBBjoNT4rXUP16Df8UWr00Y1RIyQ65';
-
-  // Endpoint da API no Vercel (serverless function)
   const API_URL = '/api/create-checkout-session';
 
-  // ─── INICIALIZA STRIPE ─────────────────────────────────────────
-  if (typeof Stripe === 'undefined') {
-    console.warn('Stripe.js não carregou ainda.');
-    return;
-  }
-
-  const stripe = Stripe(STRIPE_PK);
-
-  // ─── HANDLER DO BOTÃO ──────────────────────────────────────────
   async function handleCheckout(btn) {
-    const originalText = btn.innerHTML;
+    const originalHTML = btn.innerHTML;
 
     try {
-      // Estado de loading no botão
       btn.disabled = true;
-      btn.innerHTML = '<span style="opacity:0.7">⏳ Aguarde...</span>';
+      btn.innerHTML = '<span style="opacity:.75;pointer-events:none">⏳ Aguarde...</span>';
 
-      // Chama a API serverless
-      const response = await fetch(API_URL, {
+      const res = await fetch(API_URL, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ plan: 'nexto' }),
       });
 
-      if (!response.ok) {
-        const err = await response.json();
-        throw new Error(err.error || 'Erro ao iniciar checkout');
+      const data = await res.json();
+
+      if (!res.ok) throw new Error(data.error || 'Erro ao iniciar pagamento');
+
+      // Redireciona direto para a URL do Stripe Checkout
+      if (data.url) {
+        window.location.href = data.url;
+      } else {
+        // Fallback: usa redirectToCheckout com sessionId
+        const stripe = Stripe('pk_live_51QMZNoDGidYUEaasOMRGZZIM9CQCXI4MJjWF584c9SWm3GSxI8tI1r5pBlUQhTSFwhqujBBjoNT4rXUP16Df8UWr00Y1RIyQ65');
+        const { error } = await stripe.redirectToCheckout({ sessionId: data.sessionId });
+        if (error) throw new Error(error.message);
       }
 
-      const { sessionId } = await response.json();
-
-      // Redireciona para o Stripe Checkout
-      const { error } = await stripe.redirectToCheckout({ sessionId });
-
-      if (error) throw new Error(error.message);
-
     } catch (err) {
-      console.error('Checkout error:', err.message);
-      alert('Ocorreu um erro ao iniciar o pagamento. Tente novamente.');
+      console.error('[Checkout]', err.message);
+      alert('Erro ao abrir o checkout. Por favor tente novamente.');
       btn.disabled = false;
-      btn.innerHTML = originalText;
+      btn.innerHTML = originalHTML;
     }
   }
 
-  // ─── LIGA OS BOTÕES ────────────────────────────────────────────
   function initButtons() {
-    const btns = document.querySelectorAll('.stripe-checkout-btn');
-    btns.forEach((btn) => {
+    document.querySelectorAll('.stripe-checkout-btn').forEach((btn) => {
       btn.addEventListener('click', (e) => {
         e.preventDefault();
         handleCheckout(btn);
@@ -62,7 +46,6 @@
     });
   }
 
-  // Aguarda DOM estar pronto
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initButtons);
   } else {
