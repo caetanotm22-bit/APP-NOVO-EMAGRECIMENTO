@@ -2,9 +2,6 @@
   "version": 2,
   "cleanUrls": false,
   "trailingSlash": false,
-  "rewrites": [
-    { "source": "/", "destination": "/nexto.html" }
-  ],
   "headers": [
     {
       "source": "/img/(.*)",
