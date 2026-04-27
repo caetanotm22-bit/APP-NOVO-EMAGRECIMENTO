@@ -19,7 +19,9 @@ module.exports = async (req, res) => {
     return res.status(500).json({ error: 'Configuração do servidor incompleta. Contate o suporte.' });
   }
 
-  const BASE_URL = process.env.NEXT_PUBLIC_URL || 'https://app-novo-emagrecimento.vercel.app';
+  const BASE_URL  = process.env.NEXT_PUBLIC_URL || 'https://app-novo-emagrecimento.vercel.app';
+  // price_1TQx1iDGidYUEaas2RwQxbYb = preço recorrente mensal A$29 AUD (criado via API)
+  const PRICE_ID  = process.env.STRIPE_PRICE_ID || 'price_1TQx1iDGidYUEaas2RwQxbYb';
 
   try {
     const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, { apiVersion: '2023-10-16' });
@@ -27,7 +29,7 @@ module.exports = async (req, res) => {
     const session = await stripe.checkout.sessions.create({
       mode: 'subscription',
       payment_method_types: ['card'],
-      line_items: [{ price: process.env.STRIPE_PRICE_ID, quantity: 1 }],
+      line_items: [{ price: PRICE_ID, quantity: 1 }],
       subscription_data: { trial_period_days: 14 },
       allow_promotion_codes: true,
       billing_address_collection: 'auto',
