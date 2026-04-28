@@ -5,12 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Nexto — Your Complete Health Team in Your Pocket</title>
   <meta name="description" content="Doctor, nutritionist and personal trainer working together, just for you, every single day. Your complete health team in your pocket." />
+  <meta http-equiv="x-dns-prefetch-control" content="on" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⬡</text></svg>" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://js.stripe.com" />
+  <link rel="dns-prefetch" href="https://i.pravatar.cc" />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="nexto.css" />
-  <script src="https://js.stripe.com/v3/" async></script>
+  <!-- Stripe loaded on demand -->
 </head>
 <body>
 
@@ -78,11 +81,11 @@
 
       <div class="hero__proof">
         <div class="proof-avatars">
-          <img src="https://i.pravatar.cc/36?img=1" alt="" />
-          <img src="https://i.pravatar.cc/36?img=5" alt="" />
-          <img src="https://i.pravatar.cc/36?img=9" alt="" />
-          <img src="https://i.pravatar.cc/36?img=15" alt="" />
-          <img src="https://i.pravatar.cc/36?img=20" alt="" />
+          <img src="https://i.pravatar.cc/36?img=1" width="36" height="36" loading="lazy" decoding="async" alt="" />
+          <img src="https://i.pravatar.cc/36?img=5" width="36" height="36" loading="lazy" decoding="async" alt="" />
+          <img src="https://i.pravatar.cc/36?img=9" width="36" height="36" loading="lazy" decoding="async" alt="" />
+          <img src="https://i.pravatar.cc/36?img=15" width="36" height="36" loading="lazy" decoding="async" alt="" />
+          <img src="https://i.pravatar.cc/36?img=20" width="36" height="36" loading="lazy" decoding="async" alt="" />
         </div>
         <div class="proof-text">
           <div class="proof-stars">★★★★★</div>
@@ -121,7 +124,7 @@
                   <p class="app-tagline">You're crushing it!</p>
                 </div>
                 <div class="app-avatar-wrap">
-                  <img src="https://i.pravatar.cc/40?img=47" alt="" class="app-avatar" />
+                  <img src="https://i.pravatar.cc/40?img=47" width="40" height="40" loading="lazy" decoding="async" alt="" class="app-avatar" />
                   <span class="app-notif">3</span>
                 </div>
               </div>
@@ -220,7 +223,7 @@
                 <p class="app-tagline">You're crushing it! Vamos em frente.</p>
               </div>
               <div class="app-avatar-wrap">
-                <img src="https://i.pravatar.cc/40?img=47" alt="" class="app-avatar" />
+                <img src="https://i.pravatar.cc/40?img=47" width="40" height="40" loading="lazy" decoding="async" alt="" class="app-avatar" />
                 <span class="app-notif">3</span>
               </div>
             </div>
@@ -321,15 +324,15 @@
 
     <div class="showcase-scroll" data-aos="fade-up" data-aos-delay="80">
       <div class="showcase-item">
-        <img src="img/app-dashboard.jpg" alt="Dashboard do app Nexto com progresso diário, refeições e hábitos" loading="lazy" />
+        <img src="img/app-dashboard.jpg" alt="Dashboard do app Nexto com progresso diário, refeições e hábitos" loading="lazy" decoding="async" />
         <p class="showcase-caption">Real-time progress dashboard</p>
       </div>
       <div class="showcase-item">
-        <img src="img/app-notifications.jpg" alt="Notificações do time Nexto — nutricionista, personal e médico" loading="lazy" />
+        <img src="img/app-notifications.jpg" alt="Notificações do time Nexto — nutricionista, personal e médico" loading="lazy" decoding="async" />
         <p class="showcase-caption">Your Team te chama todo dia</p>
       </div>
       <div class="showcase-item">
-        <img src="img/app-ai-coach.jpg" alt="AI Coach Nexto adaptando o plano à rotina do usuário" loading="lazy" />
+        <img src="img/app-ai-coach.jpg" alt="AI Coach Nexto adaptando o plano à rotina do usuário" loading="lazy" decoding="async" />
         <p class="showcase-caption">AI Coach adapts everything to your life</p>
       </div>
     </div>
@@ -452,7 +455,7 @@
   <div class="container">
     <div class="lifestyle-inner" data-aos="fade-up">
       <div class="lifestyle-img-wrap">
-        <img src="img/lifestyle-team.jpg" alt="Mulher usando o Nexto com equipe integrada de saúde" loading="lazy" class="lifestyle-img" />
+        <img src="img/lifestyle-team.jpg" alt="Mulher usando o Nexto com equipe integrada de saúde" loading="lazy" decoding="async" class="lifestyle-img" />
       </div>
       <div class="lifestyle-text">
         <h3>GP. Nutritionist. Personal Trainer.<br/><span class="grad-text">Working together for you.</span></h3>
@@ -677,16 +680,16 @@
   <div class="container">
     <div class="lg-grid" data-aos="fade-up">
       <div class="lg-item lg-item--tall">
-        <img src="img/lifestyle-rest-day.jpg" alt="Mulher usando o Nexto: app mostra dia de descanso com suporte do AI coach" loading="lazy" />
+        <img src="img/lifestyle-rest-day.jpg" alt="Mulher usando o Nexto: app mostra dia de descanso com suporte do AI coach" loading="lazy" decoding="async" />
         <div class="lg-caption">Rest days are part of the plan too</div>
       </div>
       <div class="lg-col">
         <div class="lg-item">
-          <img src="img/lifestyle-nutrition.jpg" alt="Nutritionist Nexto sugerindo receita saudável e personalizada" loading="lazy" />
+          <img src="img/lifestyle-nutrition.jpg" alt="Nutritionist Nexto sugerindo receita saudável e personalizada" loading="lazy" decoding="async" />
           <div class="lg-caption">Recipes tailored to your plan</div>
         </div>
         <div class="lg-item">
-          <img src="img/lifestyle-plan.jpg" alt="Plano semanal do Nexto com treino, alimentação e mindset" loading="lazy" />
+          <img src="img/lifestyle-plan.jpg" alt="Plano semanal do Nexto com treino, alimentação e mindset" loading="lazy" decoding="async" />
           <div class="lg-caption">Complete plan: workout, nutrition and mindset</div>
         </div>
       </div>
@@ -743,7 +746,7 @@
         <div class="story__stars">★★★★★</div>
         <p class="story__quote">"I finally understood what was wrong. My GP and nutritionist had never spoken to each other. With Nexto, I lost 9kg in 3 months and haven't put it back on."</p>
         <div class="story__person">
-          <img src="https://i.pravatar.cc/48?img=47" alt="" />
+          <img src="https://i.pravatar.cc/48?img=47" width="48" height="48" loading="lazy" decoding="async" alt="" />
           <div><strong>Camila R.</strong><small>Mum, 34 · Sydney</small></div>
           <div class="story__result">−9kg</div>
         </div>
@@ -753,7 +756,7 @@
         <div class="story__stars">★★★★★</div>
         <p class="story__quote">"I travel for work every week. I always thought it was impossible to lose weight like that. The team adapted everything for hotels and airports. Results in 4 months, travelling every single week."</p>
         <div class="story__person">
-          <img src="https://i.pravatar.cc/48?img=68" alt="" />
+          <img src="https://i.pravatar.cc/48?img=68" width="48" height="48" loading="lazy" decoding="async" alt="" />
           <div><strong>Rafael T.</strong><small>Executive, 41 · Brisbane</small></div>
           <div class="story__result">−12kg</div>
         </div>
@@ -763,7 +766,7 @@
         <div class="story__stars">★★★★★</div>
         <p class="story__quote">"6 years of yo-yo dieting. The GP identified a hormonal issue that my old nutritionist had never picked up. That was what had been holding me back all along."</p>
         <div class="story__person">
-          <img src="https://i.pravatar.cc/48?img=25" alt="" />
+          <img src="https://i.pravatar.cc/48?img=25" width="48" height="48" loading="lazy" decoding="async" alt="" />
           <div><strong>Juliana M.</strong><small>Teacher, 28 · Melbourne</small></div>
           <div class="story__result">−7kg</div>
         </div>
@@ -829,7 +832,7 @@
 
       <!-- Social proof alongside price card -->
       <div class="pricing-side" data-aos="fade-left" data-aos-delay="100">
-        <img src="img/lifestyle-notifications.jpg" alt="Usuária recebendo notificações da equipe Nexto" loading="lazy" class="pricing-side-img" />
+        <img src="img/lifestyle-notifications.jpg" alt="Usuária recebendo notificações da equipe Nexto" loading="lazy" decoding="async" class="pricing-side-img" />
         <div class="pricing-side-stats">
           <div class="pss-item"><span class="pss-num">+3.200</span><span class="pss-lbl">active members</span></div>
           <div class="pss-item"><span class="pss-num">4.9★</span><span class="pss-lbl">average rating</span></div>
@@ -999,7 +1002,7 @@
 
 <button class="scroll-top" id="scrollTop" aria-label="Topo">↑</button>
 
-<script src="nexto.js"></script>
-<script src="nexto-stripe.js"></script>
+<script src="nexto.js" defer></script>
+<script src="nexto-stripe.js" defer></script>
 </body>
 </html>
