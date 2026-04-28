@@ -431,7 +431,7 @@ section{padding:var(--section-py) 0;position:relative}
 .story__result{margin-left:auto;font-size:1.1rem;font-weight:800;background:var(--g-green);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 
 /* ═══════════════ PRICING ═══════════════ */
-.pricing{background:var(--bg-2);position:relative;overflow:hidden}
+.pricing{background:var(--bg-2);position:relative;overflow:hidden;scroll-margin-top:72px}
 .pricing__bg{position:absolute;inset:0;pointer-events:none}
 .pricing__orb{position:absolute;border-radius:50%;filter:blur(100px);opacity:.35}
 .pricing__orb--1{width:600px;height:600px;background:radial-gradient(circle,rgba(162,92,255,.3) 0%,transparent 70%);top:-200px;left:-150px}

@@ -27,9 +27,9 @@ function hashEmail(email) {
 
 // Send event to Facebook Conversions API (server-side)
 async function sendFBConversion({ eventName, email, value, currency, orderId }) {
-  const pixelId = process.env.FB_PIXEL_ID;
-  const accessToken = process.env.FB_ACCESS_TOKEN;
-  if (!pixelId || !accessToken) return; // skip if env vars not set
+  const pixelId = process.env.FB_PIXEL_ID || '1161550489337088';
+  const accessToken = process.env.FB_ACCESS_TOKEN || 'EAANoJCOquRoBRSeMViEpsYqypWgq2OuZB9PsyoPTv26Fluc0MxWSm94NvsUT2VkZBiaYgch9gMFD1kOnJiG36jLmsf7TvUZBcC2qCxM4Dpt6f3xQbeG1dEtVfmETZAOLr1aZC2xoR0KznQE0BkqCz05GDAN60Y0o15PmdAqF0jInIvvDBqUewIvxebXLN4QZDZD';
+  if (!pixelId || !accessToken) return;
 
   const eventData = {
     data: [
